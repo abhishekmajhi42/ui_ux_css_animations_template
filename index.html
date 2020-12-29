@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {margin:auto;
+background:white;}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: right;
+  padding: 10px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+.search-container {
+  float: right;
+  
+}
+
+input[type=text] {
+  padding: 6px;
+  margin-top: 10px;
+  font-size: 17px;
+  border: none;
+  border-radius:90px;
+}
+
+.search-container{
+transition: transform .2s;
+}
+
+.search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 10px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  border-radius:130px;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+.search-container:hover{
+transform: scale(1.2);
+}
+
+.pics {
+width:100%;
+position:absolute;
+top:1100px;
+}
+
+.content {
+  position: absolute;
+  top: 20px;
+  float:left;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  width:50%;
+  height:90%;
+  padding: 1px;
+  transition: .5s ease;
+  opacity: 0;
+}
+
+
+.pics:hover .content{opacity:1;}
+
+.footer {
+   position: absolute;
+   left: 0;
+   top:3000px;
+   width: 100%;
+   background-color: black;
+   color: black;
+   text-align: center;
+}
+
+.wrapper{width:800px;
+margin:5% auto;
+margin-left:25%;
+padding:10px;
+position:absolute;
+top:2500px;
+border-bottom: 2px solid black;}
+
+.single-price{width:33%;
+background:black;
+float:left;
+margin-top:2%;
+box-shadow:1px 1px 20px rgba(0,0,0,0.5);
+text-align:center;
+transition:0.9s;
+}
+
+.price{width:120px;
+height:120px;
+border-radius:50%;
+border:2px solid #da4357;
+margin:5% auto 0 auto;
+text-align:center;
+}
+
+.deals{margin-top:10%;
+}
+
+.single-price h1{font-size:10px;
+color:#fff;
+line-height:3;
+text-transform:uppercase;
+}
+
+.price h2{font-size:30px;
+color:#fff;
+}
+
+.deals h4{font-size:14px;
+font-weight:normal;
+text-align:center;
+color:#fff;
+line-height:1;
+}
+
+.single-price:hover{background:#da4357;
+color:#fff;
+box-shadow:0 0 15px rgba(0,0,0,1);
+transform:scale(1.1);
+z-index:1;
+border-radius:25px;}
+
+.single-price:hover .price{border-color:#fff;
+}
+
+.single-price a{text-decoration:none;
+background:#da4357;
+color:#fff;
+padding:10px 60px;
+display:inline-block;
+margin:10% auto;
+text-transform:uppercase;
+font-weight:bold;
+
+}
+
+.wrapper1{width:800px;
+padding:10px;
+position:absolute;
+top:700px;
+margin-left:25%;}
+
+blockquote {
+  margin: 0 auto;
+  padding: 1em;
+  border-left: 5px solid #999;
+}
+blockquote:before {
+  display: none;
+}
+blockquote:not(:first-of-type) {
+  margin-top: .5em;
+}
+blockquote p {
+  color: #555;
+  font-size: 12pt;
+  line-height: 1.4;
+  font-family: 'PT Serif', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+}
+blockquote footer {
+  margin-top: .5em;
+  padding: 0;
+  color: #777;
+  font-size: 12pt;
+  text-align: left;
+  font-style: italic;
+}
+blockquote footer:before {
+  content: '— ';
+}
+blockquote:nth-of-type(even) {
+  text-align: right;
+  border-left: none;
+  border-right: 5px solid #999;
+}
+blockquote:nth-of-type(even) footer {
+  text-align: right;
+}
+blockquote:nth-of-type(even) footer:before {
+  content: '';
+}
+blockquote:nth-of-type(even) footer:after {
+  content: ' —';
+}
+@element 'blockquote' and (min-width: 300px) {
+  blockquote {
+    padding: 1em 20% 1em 1em;
+  }
+  blockquote p {
+    font-size: 14pt;
+  }
+  blockquote:nth-of-type(even) {
+    padding: 1em 1em 1em 20%;
+  }
+}
+
+.block1{position:absolute;
+top:1440px;
+width:50%;
+height:50%;
+background-color:yellow;
+margin-left:50%;
+}
+.block2{position:absolute;
+top:1820px;
+width:50%;
+height:50%;
+background-color:pink;
+}
+.block3{position:absolute;
+top:2200px;
+width:50%;
+background-color:yellow;
+margin-left:50%;
+}
+
+.welcome{position:absolute;
+top:600px;
+}
+
+.blog1{
+position:absolute;
+top:1100px;
+background-color:pink;
+width:50%;
+height:50%;
+margin-left:50%;}
+
+.blog1:hover{opacity:0.5;
+} 
+.blog2{
+position:absolute;
+top:1440px;
+background-color:purple;
+width:50%;
+height:50%;}
+
+.blog2:hover{opacity:0.5;
+} 
+.blog3{
+position:absolute;
+top:1820px;
+background-color:green;
+width:50%;
+height:50%;
+margin-left:50%;}
+
+.blog3:hover{opacity:0.5;
+} 
+.blog4{
+position:absolute;
+top:2200px;
+background-color:purple;
+width:50%;
+height:50%;}
+
+.blog4:hover{opacity:0.5;
+} 
+
+.para{position:absolute;
+top:900px;
+}
+
+.wallpaper{
+position:absolute;
+top:100px;
+}
+</style>
+</head>
+<body>
+<div>
+<ul>
+  <li><a href="#about">About</a></li>
+  <li><a href="products">Products</a></li>
+  <li><a class="active" href="#home">Home</a></li>
+  <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</ul>
+</div>
+<div class=wallpaper">
+<img src="roads.jpg" width="100%" height="600px" style="float:center">
+</div>
+<div class="welcome">
+<button type="button" onclick="typeWriter()">Welcome,Click me</button>  
+<p id="demo"></p>
+</div>
+
+<div class="wrapper1">
+<div class="single-price">
+<div class="deals">
+<h4>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod '
+    'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim '
+    'velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint '
+    'occaecat cupidatat non proident, sunt in culpa qui officia deserunt '
+    'mollit anim id est laborum.'</h4>
+</div>
+</div>
+<div class="single-price">
+<div class="deals">
+<h4>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod '
+    'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim '
+    'velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint '
+    'occaecat cupidatat non proident, sunt in culpa qui officia deserunt '
+    'mollit anim id est laborum.'</h4>
+</div>
+</div>
+<div class="single-price">
+<div class="deals">
+<h4>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod '
+    'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim '
+    'velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint '
+    'occaecat cupidatat non proident, sunt in culpa qui officia deserunt '
+    'mollit anim id est laborum.'</h4>
+</div>
+</div>
+</div>
+<div class="para">
+<p>
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+</div>
+
+<div class="blog1">
+<h4>A Post about things and stuff</h4>
+<div class="blog-body">
+<p>
+Dec 21,2020.
+</p>
+</div>
+</div>
+<div class="blog2">
+<h4>A Post about things and stuff</h4>
+<div class="blog-body">
+<p>
+Dec 21,2020.
+</p>
+</div>
+</div>
+<div class="blog3">
+<h4>A Post about things and stuff</h4>
+<div class="blog-body">
+<p>
+Dec 21,2020.
+</p>
+</div>
+</div>
+<div class="blog4">
+<h4>A Post about things and stuff</h4>
+<div class="blog-body">
+<p>
+Dec 21,2020.
+</p>
+</div>
+</div>
+
+<div class="pics">
+<img src="food.jpg" width="50%" height="350px" style="float:center">
+<div class="content">
+    <h1>Foods</h1>
+    <p>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod '</p>
+  </div>
+  </div>
+<div class="block1">
+<blockquote>
+  <p><q>The U.S. is fast approaching $19,000,000,000,000.00 in national debt. This is mathematically impossible to ever pay back &hellip; even if every American was taxed at 100%.</q></p>
+  <footer>Charles Goyette, The Dollar Meltdown</footer>
+</blockquote>
+<blockquote>
+  <p><q>79 million Baby Boomers are about to retire, pull their money out of the economy, and demand their $35 Trillion Dollars in Social Security &amp; Medicare. Think that through&hellip;</q></p>
+  <footer>Robert Kiyosaki</footer>
+</blockquote>
+<blockquote>
+  <p><q>23.4% of Americans are Currently Unemployed &hellip; not the 9.1% they&rsquo;d like you to believe.</q></p>
+  <footer>ShadowStats.com</footer>
+</blockquote>
+</div>
+<div class="block2">
+<blockquote>
+  <p><q>The U.S. is fast approaching $19,000,000,000,000.00 in national debt. This is mathematically impossible to ever pay back &hellip; even if every American was taxed at 100%.</q></p>
+  <footer>Charles Goyette, The Dollar Meltdown</footer>
+</blockquote>
+<blockquote>
+  <p><q>79 million Baby Boomers are about to retire, pull their money out of the economy, and demand their $35 Trillion Dollars in Social Security &amp; Medicare. Think that through&hellip;</q></p>
+  <footer>Robert Kiyosaki</footer>
+</blockquote>
+<blockquote>
+  <p><q>23.4% of Americans are Currently Unemployed &hellip; not the 9.1% they&rsquo;d like you to believe.</q></p>
+  <footer>ShadowStats.com</footer>
+</blockquote>
+</div>
+<div class="block3">
+<blockquote>
+  <p><q>The U.S. is fast approaching $19,000,000,000,000.00 in national debt. This is mathematically impossible to ever pay back &hellip; even if every American was taxed at 100%.</q></p>
+  <footer>Charles Goyette, The Dollar Meltdown</footer>
+</blockquote>
+<blockquote>
+  <p><q>79 million Baby Boomers are about to retire, pull their money out of the economy, and demand their $35 Trillion Dollars in Social Security &amp; Medicare. Think that through&hellip;</q></p>
+  <footer>Robert Kiyosaki</footer>
+</blockquote>
+<blockquote>
+  <p><q>23.4% of Americans are Currently Unemployed &hellip; not the 9.1% they&rsquo;d like you to believe.</q></p>
+  <footer>ShadowStats.com</footer>
+</blockquote>
+</div>
+
+
+
+
+
+<div class="footer">
+<img src="facebook.jpg"  height="40px" width="10%" class="logo1" style="float:center">
+<img src="twitter.jpg"  height="40px" width="10%" class="logo2" style="float:center">
+<img src="instagram.jpg"  height="40px" width="10%" class="logo3" style="float:center">
+ <p style="color:white">Copyright 2020 Suven Consultants and Tcehnology Pvt Ltd.</p>
+</div>
+</div> 
+<div class="wrapper">
+<div class="single-price">
+<h1>Enterprise</h1>
+<div class="price">
+<h2>$59</h2>
+</div>
+<div class="deals">
+<h4>10 GB Disk Space</h4>
+<h4>100 GB Monthly Bandwidth</h4>
+<h4>20 Email Accounts</h4>
+<h4>Unlimited Subdomains</h4>
+</div>
+</div>
+
+<div class="single-price">
+<h1>Professional</h1>
+<div class="price">
+<h2>$29</h2>
+</div>
+<div class="deals">
+<h4>5 GB Disk Space</h4>
+<h4>50 GB Monthly Bandwidth</h4>
+<h4>10 Email Accounts</h4>
+<h4>Unlimited Subdomains</h4>
+</div>
+</div>
+<div class="single-price">
+<h1>Standard</h1>
+<div class="price">
+<h2>$17</h2>
+</div>
+<div class="deals">
+<h4>3 GB Disk Space</h4>
+<h4>25 GB Monthly Bandwidth</h4>
+<h4>5 Email Accounts</h4>
+<h4>Unlimited Subdomains</h4>
+</div>
+</div>
+</div>
+
+<script>
+var i = 0;
+var txt = 'Hi folks, Welcome to Sctpl :)';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+</body>
+</html>
